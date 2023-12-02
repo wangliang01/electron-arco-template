@@ -1,0 +1,1 @@
+import{h as u}from"./index-4e96c428.js";import{u as i}from"./loading-3d00edd7.js";function d(o,s=[],t=!0){const{loading:a,setLoading:n}=i(t),e=u(s);return o().then(r=>{e.value=r.data}).finally(()=>{n(!1)}),{loading:a,response:e}}export{d as u};

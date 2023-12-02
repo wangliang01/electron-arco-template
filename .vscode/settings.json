@@ -1,0 +1,23 @@
+{
+  "i18n-ally.localesPaths": [
+    "src/renderer/locale",
+    "src/renderer/components/message-box/locale",
+    "src/renderer/views/login/locale",
+    "src/renderer/views/dashboard/monitor/locale",
+    "src/renderer/views/dashboard/workplace/locale",
+    "src/renderer/views/exception/403/locale",
+    "src/renderer/views/exception/404/locale",
+    "src/renderer/views/exception/500/locale",
+    "src/renderer/views/form/group/locale",
+    "src/renderer/views/form/step/locale",
+    "src/renderer/views/list/search-table/locale",
+    "src/renderer/views/list/card/locale",
+    "src/renderer/views/profile/basic/locale",
+    "src/renderer/views/result/error/locale",
+    "src/renderer/views/result/success/locale",
+    "src/renderer/views/user/info/locale",
+    "src/renderer/views/user/setting/locale",
+    "src/renderer/views/visualization/data-analysis/locale",
+    "src/renderer/views/visualization/multi-dimension-data-analysis/locale"
+  ]
+}
