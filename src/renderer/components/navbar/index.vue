@@ -203,6 +203,17 @@
   import Menu from '@renderer/components/menu/index.vue';
   import MessageBox from '../message-box/index.vue';
 
+  console.log('systemInfo', window.systemInfo);
+
+  const isElectronApp = ref(window.systemInfo);
+
+  const paddingRight = computed(() => {
+    if (isElectronApp.value) {
+      return '140px';
+    }
+    return '20px';
+  });
+
   const appStore = useAppStore();
   const userStore = useUserStore();
   const { logout } = useUser();
@@ -283,7 +294,7 @@
 
   .right-side {
     display: flex;
-    padding-right: 20px;
+    padding-right: v-bind(paddingRight);
     list-style: none;
     :deep(.locale-select) {
       border-radius: 20px;

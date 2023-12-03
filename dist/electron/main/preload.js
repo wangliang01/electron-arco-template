@@ -1,1 +1,26 @@
-"use strict";var x=require("electron"),i=require("os");function a(){var e=["exposeInMainWorld","400fYNxIS","1296647griBBP","6172428wNhctb","2315230uGVMTm","sendSync","908675QQCXfk","removeAllListeners","ipcRenderer","8fCRycY","3uWQwTj","260006ARhAUN","9jGpoGG","2154453zDGOCd","invoke","send","1431PPFVIc"];return a=function(){return e},a()}var s=c;(function(e,r){for(var n=c,t=e();[];)try{var o=-parseInt(n(120))/1*(parseInt(n(121))/2)+-parseInt(n(126))/3*(-parseInt(n(128))/4)+-parseInt(n(116))/5+parseInt(n(130))/6+-parseInt(n(123))/7*(parseInt(n(119))/8)+-parseInt(n(122))/9*(-parseInt(n(131))/10)+parseInt(n(129))/11;if(o===r)break;t.push(t.shift())}catch(d){t.push(t.shift())}})(a,546315);function c(e,r){var n=a();return c=function(t,o){t=t-115;var d=n[t];return d},c(e,r)}x.contextBridge.exposeInMainWorld(s(118),{send:(e,r)=>x.ipcRenderer[s(125)](e,r),sendSync:(e,r)=>x.ipcRenderer[s(115)](e,r),on:(e,r)=>x.ipcRenderer.on(e,r),once:(e,r)=>x.ipcRenderer.once(e,r),invoke:(e,r)=>x.ipcRenderer[s(124)](e,r),removeAllListeners:e=>x.ipcRenderer[s(117)](e)}),x.contextBridge[s(127)]("systemInfo",{platform:i.platform(),release:i.release(),arch:i.arch()}),x.contextBridge.exposeInMainWorld("shell",{shell:x.shell}),x.contextBridge[s(127)]("crash",{start:()=>{process.crash()}});
+'use strict';
+
+var electron = require('electron');
+var os = require('os');
+
+electron.contextBridge.exposeInMainWorld("ipcRenderer", {
+  send: (channel, args) => electron.ipcRenderer.send(channel, args),
+  sendSync: (channel, args) => electron.ipcRenderer.sendSync(channel, args),
+  on: (channel, listener) => electron.ipcRenderer.on(channel, listener),
+  once: (channel, listener) => electron.ipcRenderer.once(channel, listener),
+  invoke: (channel, args) => electron.ipcRenderer.invoke(channel, args),
+  removeAllListeners: (channel) => electron.ipcRenderer.removeAllListeners(channel)
+});
+electron.contextBridge.exposeInMainWorld("systemInfo", {
+  platform: os.platform(),
+  release: os.release(),
+  arch: os.arch()
+});
+electron.contextBridge.exposeInMainWorld("shell", {
+  shell: electron.shell
+});
+electron.contextBridge.exposeInMainWorld("crash", {
+  start: () => {
+    process.crash();
+  }
+});
